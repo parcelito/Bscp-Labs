@@ -1,0 +1,12 @@
+Objetivo final
+usar ataque de tipo UNION para mostrar la versión de la base de datos.
+
+parametro vulnerable: category
+
+Analisis:
+    Es vulnerable a sql injection?
+        si
+    Determinar cantidad de columnas en la tabla vulnerable
+        2
+    Determinar los tipos de datos
+        Permite texto ' UNION SELECT 'a', 'a'-- -> me mostro las a's en la respuesta
