@@ -11,14 +11,17 @@ Analisis:
     Determinar cantidad de columnas en la tabla vulnerable:
         2
     Determinar los tipos de datos:
+        nose como hacer en Oracle
     Versión de base de datos?:
-        Postgressql 2.18
+        CORE	11.2.0.2.0	Production
     Obtener la tabla que contiene información de credenciales del motor de base de datos:
-        users_aflyap
+        USERS_GRXPOD
     Obtener las columnas de la tabla objetivo identificada en el paso anterio:
-        username_gmprbw
-        password_cnbrwm
+        EMAIL
+        PASSWORD_NXRUWX
+        USERNAME_ELSZCD
     Obtener las credenciales de las columnas del paso anterior de la tabla identificada:
-        administrator / pv7vpjooh6uyw2pjieu9
+        administrator
+        zipjdwb965a0vbl39pi6
     Iniciar sesión:
         hecho

