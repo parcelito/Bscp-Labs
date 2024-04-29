@@ -1,0 +1,24 @@
+Objetivo final:
+    Usar ataque sqli de tipo UNION para obtener información de otras tablas
+    Determinar el numero de columnas que retorna la consulta 
+    Continuar con un ataque completo
+
+parametro vulnerable: category
+
+Analisis:
+    Es vulnerable a sql injection?:
+        si
+    Determinar cantidad de columnas en la tabla vulnerable:
+        3
+    Versión de base de datos?:
+        PostgreSQL 12.18
+    Determinar los tipos de datos:    
+        N/A
+    Obtener la tabla que contiene información de credenciales del motor de base de datos:
+        N/A
+    Obtener las columnas de la tabla objetivo identificada en el paso anterio:
+        N/A
+    Obtener las credenciales de las columnas del paso anterior de la tabla identificada:
+        N/A
+    Iniciar sesión:
+        
