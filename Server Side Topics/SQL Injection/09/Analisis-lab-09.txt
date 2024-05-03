@@ -9,8 +9,10 @@ Analisis:
     Es vulnerable a sql injection?:
         si
     Determinar cantidad de columnas en la tabla vulnerable:
-        
+        3
+    Determinar los tipos de datos:
+        2da columna es de tipo texto "string"
     Versión de base de datos?:
+        N/A
         
-    Determinar los tipos de datos:    
         
