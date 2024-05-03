@@ -1,0 +1,16 @@
+Objetivo final:
+    Usar ataque sqli de tipo UNION para obtener información de otras tablas.
+    Determinar el numero de columnas que retorna la consulta. 
+    Determinar el tipo de dato de cada columna que sea compatible.
+
+parametro vulnerable: category
+
+Analisis:
+    Es vulnerable a sql injection?:
+        si
+    Determinar cantidad de columnas en la tabla vulnerable:
+        
+    Versión de base de datos?:
+        
+    Determinar los tipos de datos:    
+        
