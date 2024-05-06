@@ -1,0 +1,23 @@
+Objetivo final:
+    Usar ataque sqli de tipo UNION para obtener información de otras tablas.
+    Obtener todas las credenciales de inicio de sesión.
+    Iniciar sesión como el usuario administrator. 
+
+Parametro vulnerable: category
+Tabla Objetivo: users
+Columnas Objetivos: 
+    username
+    password
+
+Analisis:
+    Es vulnerable a sql injection?:
+        si
+    Determinar cantidad de columnas en la tabla vulnerable:
+        2
+    Determinar los tipos de datos:
+        texto
+        texto
+    Obtención de credenciales:
+        administrator
+        iru9c99f9lvy2zqfmsjx
+        
