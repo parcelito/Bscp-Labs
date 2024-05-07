@@ -1,0 +1,26 @@
+Objetivos:
+    Usar ataque sqli de tipo UNION para obtener información de otras tablas.
+    Obtener todas las credenciales de inicio de sesión en una sola columna.
+    Iniciar sesión como el usuario administrator. 
+
+Información provista en el ejercicio:
+    Parametro vulnerable: 
+        category
+    Tabla Objetivo: 
+        users
+    Columnas Objetivos: 
+        username
+        password
+
+Analisis:
+    Es vulnerable a sql injection?:
+        si
+    Determinar cantidad de columnas en la tabla vulnerable:
+        2
+    Determinar los tipos de datos:
+        columna 1 -> No es tipo texto o string
+        columna 2 -> Es tipo texto o string -> esta sera la columna por la que voy a obtener las credenciales concatenando 2 columna en una
+    Obtención de credenciales:
+        usuario    -> administrator
+        contraseña -> i1zk0gxvyhri76uo2gwv
+        

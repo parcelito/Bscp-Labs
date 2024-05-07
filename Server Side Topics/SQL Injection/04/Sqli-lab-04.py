@@ -1,7 +1,8 @@
-# Lab: SQL injection attack, querying the database type and version on Oracle PRACTITIONER
+# Lab: SQL injection attack, querying the database type and version on Oracle 
+# PRACTITIONER
 
-#This lab contains a SQL injection vulnerability in the product category filter. You can use a UNION attack to retrieve the results from an injected query.
-#To solve the lab, display the database version string.
+# This lab contains a SQL injection vulnerability in the product category filter. You can use a UNION attack to retrieve the results from an injected query.
+# To solve the lab, display the database version string.
 import requests
 import sys
 import urllib3
