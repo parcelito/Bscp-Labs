@@ -12,7 +12,10 @@ Objetivos:
 
 Hoja de ruta:
     Determinar si el header cookie "tracking" es vulnerable a Boolean Blind SQLi
-    Permutar para obtener credenciales del usuario "administrator"
+    Determinar si la tabla users existe
+    Determinar si el usuario administrator existe en la tabla users
+    Determinar la longitud de la contraseña del usuario administrator con intruder
+    Permutar para obtener credenciales del usuario "administrator" con intruder
 
 Información provista en el ejercicio:
     Parametro vulnerable: 
@@ -26,11 +29,15 @@ Información provista en el ejercicio:
 Analisis:
     Es vulnerable a sql injection?:
         si
-    Determinar cantidad de columnas en la tabla vulnerable:
-        No aplica
-    Determinar los tipos de datos:
-        No aplica
+    Determinar si la tabla users existe
+        si
+    Determinar si el usuario administrator existe en la tabla users
+        si
+    Determinar la longitud de la contraseña del usuario administrator con intruder
+        20
+    Permutar para obtener credenciales del usuario "administrator" con intruder
+        m4z7f6ru6jfhfr77j8zq
     Obtención de credenciales:
         usuario    -> administrator
-        contraseña -> 
+        contraseña -> m4z7f6ru6jfhfr77j8zq
         

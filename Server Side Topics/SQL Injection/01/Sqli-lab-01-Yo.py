@@ -26,7 +26,7 @@ def Obtener_Cantidad_Divs(Url,Payload):
         Divs = EncontrandoSeccion.find_all('div')
         return len(Divs)
     else:
-        return 0
+        return 0 
 
 def Sqli_Lab_01(Url):
     CantidadInyeccion = Obtener_Cantidad_Divs(Url,Payload)
